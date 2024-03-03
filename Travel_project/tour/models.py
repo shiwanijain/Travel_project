@@ -15,6 +15,7 @@ class Tour(models.Model):
     number_of_days = models.PositiveIntegerField()
     send_enquiry_mailer = models.TextField()
     contact_details = models.TextField()
+    image = models.ImageField(upload_to='tour_images/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
