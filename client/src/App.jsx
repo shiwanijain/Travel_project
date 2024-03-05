@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './components/header/Navbar'
 import Home from './components/routes/Home'
 import Blogs from './components/routes/Blogs'
+import AboutUs from './components/footer/AboutUs'
 
 function App() {
 
@@ -10,9 +11,10 @@ function App() {
     <div className='overflow-contain'>
       <Navbar />
       <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/blogs' element={<Blogs/>}/>
+        <Route path='/' element={<Home />} />
+        <Route path='/blogs' element={<Blogs />} />
       </Routes>
+      <AboutUs />
     </div>
   )
 }
