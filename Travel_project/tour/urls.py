@@ -5,5 +5,8 @@ from . import views
 
 urlpatterns = [
     path('allTours/', views.all_tours),
-    path('tourByID/<int:id>/', views.tour_by_id),
+    path('tour/<int:id>/',views.get_tour),
+    path('create-tour/',views.create_tour),
+    path('update-tour/',views.update_tour),
+    path('delete-tour/',views.delete_tour),
 ]

@@ -13,7 +13,6 @@ class Tour(models.Model):
     faq = models.TextField()
     starting_price = models.DecimalField(max_digits=10, decimal_places=2)
     number_of_days = models.PositiveIntegerField()
-    send_enquiry_mailer = models.TextField()
     contact_details = models.TextField()
     image = models.ImageField(upload_to='tour_images/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
