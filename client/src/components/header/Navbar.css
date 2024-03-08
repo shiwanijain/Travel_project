@@ -23,7 +23,7 @@
 .menuButton{
     color: gray;
     font-weight: 500;
-    padding: 10px 20px;
+    padding: 20px 20px;
     cursor: pointer;
 }
 
@@ -32,6 +32,7 @@
     .nav-container button{
         margin-left: auto;
         cursor: pointer;
+        padding: 10px 20px;
         color: gray;
         font-weight: 500;
     }

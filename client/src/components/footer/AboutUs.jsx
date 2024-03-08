@@ -5,7 +5,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 
 const AboutUs = () => {
     return (
-        <div className='flex flex-col w-screen mt-24 bg-black text-white items-center gap-6'>
+        <div id='aboutUs' className='flex flex-col w-screen mt-24 bg-black text-white items-center gap-6'>
             <div className='text-4xl lg:text-5xl pt-10'>About Us</div>
             <div className="social-media flex gap-6">
                 <a href="https://www.facebook.com"><FacebookIcon fontSize='large' /></a>
