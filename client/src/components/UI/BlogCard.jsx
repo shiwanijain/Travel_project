@@ -1,42 +1,32 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import CardMedia from '@mui/material/CardMedia';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import './BlogCard.css';
 
-export default function BlogCard(props) {
-    const navigate = useNavigate();
-    const handleNavigateToBlogPage = () => {
-        navigate(`/blogs/${props.id}`);
+const BlogCard = ({ place, description, author, duration, contact }) => {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [displayDescription, setDisplayDescription] = useState(description.split(' ').slice(0, 50).join(' '));
+    const isLongDescription = description.split(' ').length > 50;
+
+    const handleExpand = () => {
+        if (isExpanded) {
+            setDisplayDescription(description.split(' ').slice(0, 50).join(' '));
+        } else {
+            setDisplayDescription(description);
+        }
+        setIsExpanded(!isExpanded);
     }
-
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <button onClick={handleNavigateToBlogPage} className='hover:scale-110 transition-transform duration-500 overflow-y-hidden'>
-                <CardMedia
-                    component="img"
-                    height="100"
-                    image="../../../waterfall.webp"
-                    alt="destination"
-                />
-            </button>
-            <div className='z-10 bg-white'>
-                <CardHeader
-                    title={props.title}
-                    subheader={props.date}
-                />
+        <div className="blog-card">
+            <img src={place.picture} alt={place.name} />
+            <div className="card-body">
+                <h3 className='destination'>{place.name}</h3>
+                <p>{displayDescription}{isLongDescription}</p>
+                {isLongDescription && <button onClick={handleExpand}>{isExpanded ? 'Show Less' : 'Learn More'}</button>}
+                <p className='author'>Author: {author}</p>
+                <p className='upload-date'>duration: {duration}days</p>
+                <p className='contact'>contact: {contact}</p>
             </div>
-            <div className="flex gap-2 p-2">
-                <AccessTimeIcon />
-                <div className='font-bold'>
-                    {props.duration}
-                </div>
-            </div>
-            <div className='flex p-2'>
-                <div className=' my-auto text-lg'>From</div>
-                <div className='text-blue-400 font-bold text-xl md:text-2xl my-auto ml-4'>{props.cost}</div>
-            </div>
-        </Card>
+        </div>
     );
-}
+};
+
+export default BlogCard;
