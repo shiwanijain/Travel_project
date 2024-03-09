@@ -3,6 +3,7 @@ import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import Card from '../UI/Card';
 import Carousel from '../UI/Carousel';
 import { useNavigate } from "react-router-dom";
+import CardCarousel from '../UI/CardCarousel';
 
 const cardData = [
     {
@@ -45,11 +46,13 @@ const testimonialData = [
 
 function Home() {
     const navigate = useNavigate();
+    const searchCardHandler = () => {
+        navigate('/tours');
+    };
 
     const handleNavigateToBlogs = () => {
         navigate('/blogs');
     };
-
 
     return (
         <>
@@ -70,7 +73,7 @@ function Home() {
             </div>
             <div className='flex flex-col md:flex-row flex-wrap w-[80%] mx-auto lg:gap-x-8 justify-center'>
                 {cardData.map((data, index) => (
-                    <Card key={index} continent={data.continent} />
+                    <button key={index} onClick={searchCardHandler}><Card continent={data.continent} /></button>
                 ))}
             </div>
             <div className="flex flex-col w-[80%] justify-center gap-12 mx-auto">

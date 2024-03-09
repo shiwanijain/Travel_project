@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import BlogCard from '../UI/TourCard'
+import TourCard from '../UI/TourCard'
 import SearchIcon from '@mui/icons-material/Search';
 
 const tourCardData = [
@@ -34,32 +34,42 @@ const tourCardData = [
 
 function Tours() {
   const inputRef = useRef();
+
+  const [tourData, setTourData] = useState([]);
+  const [filteredData, setFilteredData] = useState(tourData);
+  const getAllBlogs = async () => {
+    const response = await fetch('http://127.0.0.1:8000/api/allTours/');
+    const data = await response.json();
+    const updatedData = data.map(item => {
+      const dateStr = item.created_at;
+      const date = new Date(dateStr);
+      const humanReadableDate = `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
+      return { ...item, humanReadableDate };
+    });
+    setTourData(updatedData);
+    setFilteredData(updatedData);
+    console.log(updatedData);
+  }
   useEffect(() => {
     getAllBlogs();
   }, []);
-  const [blogData, setBlogData] = useState([]);
-  const [filteredData, setFilteredData] = useState(blogData);
-  const getAllBlogs = async () => {
-    const response = await fetch('http://127.0.0.1:8000/api/all-blog-posts/');
-    const data = await response.json();
-    setBlogData(data);
-    setFilteredData(data);
-  }
-  console.log(filteredData);
-  const handleSearch = () => {
-    const searchValue = inputRef.current.value;
-    const filteredData = blogData.filter(blog => blog.place.name.toLowerCase().includes(searchValue.toLowerCase()));
+
+  async function searchTours() {
+    const currentInput = inputRef.current.value;
+    console.log(currentInput);
+    const filteredData = tourData.filter(data => data.title.toLowerCase() === currentInput.toLowerCase());
+    console.log(filteredData);
     setFilteredData(filteredData);
   }
   return (
     <div>
       <div className='flex justify-center gap-4'>
         <input type="text" placeholder='search city to travel' name="" id="" className='border-2 placeholder:text-center p-2' ref={inputRef} />
-        <button onClick={handleSearch}><SearchIcon fontSize='large' /></button>
+        <button onClick={searchTours}><SearchIcon fontSize='large' /></button>
       </div>
       <div className='flex flex-col md:flex-row gap-6 w-[80%] mx-auto justify-center my-10'>
-        {tourCardData.map((data, index) => (
-          <BlogCard key={index} title={data.place.name} date={data.date} duration={data.duration} cost={data.cost} id={data.id} />
+        {tourData.map((data, index) => (
+          <TourCard key={index} title={data.title} date={data.humanReadableDate} duration={data.number_of_days} cost={data.starting_price} id={data.id} />
         ))}
       </div>
     </div>

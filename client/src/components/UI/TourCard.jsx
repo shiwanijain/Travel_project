@@ -30,7 +30,7 @@ export default function TourCard(props) {
             <div className="flex gap-2 p-2">
                 <AccessTimeIcon />
                 <div className='font-bold'>
-                    {props.duration}
+                    {props.duration} Days
                 </div>
             </div>
             <div className='flex p-2'>

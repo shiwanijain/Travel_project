@@ -20,6 +20,11 @@
     margin-bottom: 10px;
 }
 
+.blog-card button{
+    color: blue;
+    font-weight: bold;
+}
+
 .blog-card .destination {
     font-size: 20px;
     font-weight: bold;
@@ -46,9 +51,9 @@
 }
 
 .blog-card .contact{
-    color: blue;
+    color: #888;
     cursor: pointer;
-    
+
 }
 
 @media (max-width: 768px) {

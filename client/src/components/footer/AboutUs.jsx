@@ -15,7 +15,7 @@ const AboutUs = () => {
             <div className="logo">
                 <img src="/path/to/logo.png" alt="Logo" />
             </div>
-            <div className="text-center w-[50%] gap-4 pb-10">
+            <div className="text-center w-[80%] md:w-[50%] gap-4 pb-10">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, saepe eligendi ab repellat mollitia consequuntur dolores delectus earum dolorum voluptatibus suscipit id doloremque iure cum, debitis itaque. Sunt eos minus repellat numquam. Fuga, ipsa. Libero amet quod reprehenderit unde corporis impedit nemo odit debitis, deserunt doloremque sequi. Id, facere magni asperiores numquam, ea magnam quidem velit ad saepe, ipsum corrupti?
             </div>
         </div>
