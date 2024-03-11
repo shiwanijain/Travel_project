@@ -36,7 +36,7 @@ function Tours() {
   const inputRef = useRef();
 
   const [tourData, setTourData] = useState([]);
-  const [filteredData, setFilteredData] = useState(tourData);
+  const [filteredData, setFilteredData] = useState([]);
   const getAllBlogs = async () => {
     const response = await fetch('http://127.0.0.1:8000/api/allTours/');
     const data = await response.json();
@@ -54,21 +54,28 @@ function Tours() {
     getAllBlogs();
   }, []);
 
-  async function searchTours() {
+  function searchTours() {
     const currentInput = inputRef.current.value;
     console.log(currentInput);
     const filteredData = tourData.filter(data => data.title.toLowerCase() === currentInput.toLowerCase());
     console.log(filteredData);
     setFilteredData(filteredData);
   }
+
+  function searchOnKeyPress(e) {
+    if (e.key === 'Enter') {
+      searchTours();
+    }
+  }
+
   return (
     <div>
       <div className='flex justify-center gap-4'>
-        <input type="text" placeholder='search city to travel' name="" id="" className='border-2 placeholder:text-center p-2' ref={inputRef} />
+        <input type="text" placeholder='search city to travel' name="" id="" className='border-2 placeholder:text-center p-2' onKeyDown={searchOnKeyPress} ref={inputRef} />
         <button onClick={searchTours}><SearchIcon fontSize='large' /></button>
       </div>
       <div className='flex flex-col md:flex-row gap-6 w-[80%] mx-auto justify-center my-10'>
-        {tourData.map((data, index) => (
+        {filteredData.map((data, index) => (
           <TourCard key={index} title={data.title} date={data.humanReadableDate} duration={data.number_of_days} cost={data.starting_price} id={data.id} />
         ))}
       </div>

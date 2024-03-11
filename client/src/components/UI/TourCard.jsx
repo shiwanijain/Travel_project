@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 export default function TourCard(props) {
     const navigate = useNavigate();
     const handleNavigateToBlogPage = () => {
-        navigate(`/blogs/${props.id}`);
+        navigate(`/tours/${props.id}`);
     }
 
     return (

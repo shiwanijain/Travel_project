@@ -32,10 +32,16 @@ function Blogs() {
         setFilteredData(filteredData);
     }
 
+    function searchOnKeyPress(e) {
+        if (e.key === 'Enter') {
+            searchBlogs();
+        }
+    }
+
     return (
         <div>
             <div className='flex justify-center gap-4'>
-                <input ref={inputRef} type="text" placeholder='search city to travel' className='border-2 placeholder:text-center p-2' />
+                <input ref={inputRef} onKeyDown={searchOnKeyPress} type="text" placeholder='search city to travel' className='border-2 placeholder:text-center p-2' />
                 <button onClick={searchBlogs}><SearchIcon fontSize='large' /></button>
             </div>
             {filteredData.map((data, index) => (

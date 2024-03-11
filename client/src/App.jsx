@@ -5,7 +5,7 @@ import Home from './components/routes/Home'
 import Blogs from './components/routes/Blogs'
 import AboutUs from './components/footer/AboutUs'
 import Tours from './components/routes/Tours'
-import BlogPage from './components/routes/BlogPage'
+import TourPage from './components/routes/TourPage'
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/tours' element={<Tours />} />
         <Route path='/blogs' element={<Blogs />} />
-        <Route path={`/blogs/:id`} element={<BlogPage />} />
+        <Route path={`/tours/:id`} element={<TourPage />} />
       </Routes>
       <AboutUs />
     </div>
