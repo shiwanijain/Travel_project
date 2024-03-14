@@ -4,6 +4,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardMedia from '@mui/material/CardMedia';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { useNavigate } from 'react-router-dom';
+import CardCarousel from './CardCarousel';
 
 export default function TourCard(props) {
     const navigate = useNavigate();
@@ -13,13 +14,14 @@ export default function TourCard(props) {
 
     return (
         <Card sx={{ maxWidth: 345 }}>
-            <button onClick={handleNavigateToBlogPage} className='hover:scale-110 transition-transform duration-500 overflow-y-hidden'>
-                <CardMedia
+            <button onClick={handleNavigateToBlogPage} className='hover:scale-100 transition-transform duration-500 overflow-y-hidden'>
+                {/* <CardMedia
                     component="img"
                     height="100"
                     image="../../../waterfall.webp"
                     alt="destination"
-                />
+                /> */}
+                <CardCarousel />
             </button>
             <div className='z-10 bg-white'>
                 <CardHeader

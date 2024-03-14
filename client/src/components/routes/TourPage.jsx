@@ -30,7 +30,7 @@ function TourPage() {
 
     return (
         <div className='flex flex-col'>
-            <div className='text-center font-bold text-2xl md:text-4xl my-4'>{blogData.title}</div>
+            <div className='text-center font-bold text-xl md:text-4xl my-4'>{blogData.title}</div>
             <div className='text-md md:text-lg font-medium text-slate-500 text-left w-[90%] md:w-[70%] mx-auto mt-6 p-4'>{blogData.summary}</div>
             <div className='text-md md:text-lg font-medium text-slate-500 text-left w-[90%] md:w-[70%] mx-auto mb-6 p-4'>{blogData.details}</div>
             <div className='w-[70%] text-right font-bold text-slate-500 text-md md:text-xl mx-auto'>~posted on: {blogData.humanReadableDate}</div>

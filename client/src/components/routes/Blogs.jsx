@@ -27,7 +27,7 @@ function Blogs() {
     async function searchBlogs() {
         const currentInput = inputRef.current.value;
         console.log(currentInput);
-        const filteredData = cardData.filter(data => data.title.toLowerCase() === currentInput.toLowerCase());
+        const filteredData = cardData.filter(data => data.title.toLowerCase().includes(currentInput.toLowerCase()));
         console.log(filteredData);
         setFilteredData(filteredData);
     }

@@ -44,7 +44,7 @@ function Navbar() {
                 </div>
             </div>
             <div>
-                <div className={`${isMenuOpen ? 'block lg:hidden' : 'hidden'}` + " " + "flex flex-col justify-center gap-4 menuButton fixed w-full shadow-gray-700 shadow-lg bg-white"}>
+                <div className={`${isMenuOpen ? 'block lg:hidden' : 'hidden'}` + " " + "flex flex-col justify-center gap-4 z-0 menuButton fixed w-full shadow-gray-600 shadow-md bg-white"}>
                     <button onClick={handleNavigateToHome}>Home</button>
                     <button onClick={handleNavigateToTours}>TourList</button>
                     <button onClick={handleNavigateToBlogs}>Blogs</button>

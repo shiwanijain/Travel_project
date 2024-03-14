@@ -57,7 +57,7 @@ function Tours() {
   function searchTours() {
     const currentInput = inputRef.current.value;
     console.log(currentInput);
-    const filteredData = tourData.filter(data => data.title.toLowerCase() === currentInput.toLowerCase());
+    const filteredData = tourData.filter(data => data.title.toLowerCase().includes(currentInput.toLowerCase()));
     console.log(filteredData);
     setFilteredData(filteredData);
   }
