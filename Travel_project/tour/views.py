@@ -9,8 +9,9 @@ from .serializers import TourSerializer
 @api_view(['GET'])
 def all_tours(request):
     tours = Tour.objects.all()
-    serializer = TourSerializer(tours, many=True)
+    serializer = TourSerializer(tours, many=True, context={'request': request})
     return Response(serializer.data)
+
 
 @api_view(['GET'])
 def get_tour(request, id):
